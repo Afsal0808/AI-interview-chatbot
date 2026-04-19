@@ -1,0 +1,7 @@
+streamlit
+speechrecognition
+pyaudio
+spacy
+scikit-learn
+pandas
+numpy
