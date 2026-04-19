@@ -28,3 +28,6 @@ records user answers via voice, converts them into text, and evaluates performan
 - Emotion detection
 - Resume-based questions
 - AI scoring using BERT
+
+  ## Author
+  AFSAL S 
