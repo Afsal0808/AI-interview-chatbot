@@ -17,27 +17,24 @@ questions = [
 # -------------------------------
 # 🎤 SPEECH TO TEXT FUNCTION
 # -------------------------------
-import sounddevice as sd
-import scipy.io.wavfile as wav
-import whisper
 import streamlit as st
+import speech_recognition as sr
 
-def get_audio():
-    fs = 44100
-    duration = 5  # seconds
+st.title("AI Interview Chatbot 🎤")
 
-    st.info("🎙️ Recording... Speak now")
+audio_file = st.file_uploader("Upload your audio (.wav)")
 
-    recording = sd.rec(int(duration * fs), samplerate=fs, channels=1)
-    sd.wait()
+if audio_file is not None:
+    recognizer = sr.Recognizer()
+    
+    with open("temp.wav", "wb") as f:
+        f.write(audio_file.read())
 
-    wav.write("input.wav", fs, recording)
+    with sr.AudioFile("temp.wav") as source:
+        audio = recognizer.record(source)
+        text = recognizer.recognize_google(audio)
 
-    model = whisper.load_model("base")
-    result = model.transcribe("input.wav")
-
-    return result["text"]
-
+    st.success(text)
 # -------------------------------
 # 🧠 NLP EVALUATION FUNCTION
 # -------------------------------
