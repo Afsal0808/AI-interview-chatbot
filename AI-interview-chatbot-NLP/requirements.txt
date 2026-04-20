@@ -1,6 +1,0 @@
-streamlit
-speechrecognition
-spacy
-scikit-learn
-pandas
-numpy
