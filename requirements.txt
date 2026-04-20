@@ -1,6 +1,12 @@
 streamlit
 speechrecognition
+pyaudio
 spacy
 scikit-learn
 pandas
 numpy
+python-dotenv
+groq
+PyPDF2
+python-docx
+matplotlib
